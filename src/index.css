@@ -1,13 +1,213 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #000b14;
+  color: white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  max-width: 1550px;
+  left: 0;
+  position: relative;
+  right: 0;
+  margin: auto;
+}
+
+.tabs_container {
+  display: flex;
+  padding: 30px;
+  width: 100%;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  margin: auto;
+  overflow-x: scroll;
+  gap: 10px;
+}
+
+.tabs_container > button {
+  padding: 15px 20px;
+  width: 600px;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  background: yellow;
+  border: 0;
+}
+
+.cards_wrapper {
+  display: grid;
+  padding: 30px;
+  gap: 20px;
+  position: relative;
+  justify-content: center;
+  align-content: flex-start;
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.header {
+  margin-top: 50px;
+  font-size: 20px;
+  padding: 0 25px;
+}
+
+.header > h1 > a {
+  color: white;
+  text-decoration-color: yellow;
+  text-underline-offset: 5px;
+}
+
+.card {
+  cursor: pointer;
+  position: relative;
+  background-color: #15203c;
+  transition: 1s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card_thumbnail {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  top: 0;
+}
+
+.card_thumbnail > button {
+  font-size: 50px;
+  position: relative;
+  width: 100%;
+  color: white !important;
+  cursor: pointer;
+  z-index: 100;
+  background: none;
+  border: none;
+  transition: 0.5s;
+  color: white;
+}
+
+.card_thumbnail > button:hover {
+  color: aqua !important;
+  transform: scale(1.1);
+}
+
+.hide {
+  animation: 2s playEffect forwards;
+}
+
+@keyframes playEffect {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: collapse;
+    user-select: none;
+  }
+}
+
+.card_thumbnail > img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  object-fit: cover;
+  height: 101%;
+  z-index: 100;
+}
+
+.card_info {
+  padding: 0 15px;
+  margin-bottom: 15px;
+  display: grid;
+  gap: 15px;
+}
+
+.card_info > h1 {
+  font-size: 20px;
+  max-width: 550px;
+  font-weight: 900;
+}
+.card_info > p {
+  font-weight: bold;
+  font-size: 13px;
+  max-width: 600px;
+}
+
+.card_s_1 {
+  padding: 20px 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.switcher {
+  background: saddlebrown;
+  height: 400px;
+  position: relative;
+}
+
+.cards_wrapper iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.cards_actions_wrapper {
+  display: grid;
+  padding: 25px 15px;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+}
+.divider {
+  height: 2px;
+  width: 100%;
+  background: white;
+}
+
+.cards_actions_wrapper {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.cards_actions_wrapper > div > p:last-child {
+  font-weight: normal;
+}
+
+.cards_actions_wrapper > div {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.cards_actions_wrapper > div:nth-child(2n) {
+  justify-content: center;
+}
+
+.cards_actions_wrapper > div:nth-child(3n) {
+  justify-content: end;
+}
+
+@media (max-width: 900px) {
+  .cards_wrapper {
+    display: flex;
+    flex-direction: column;
+  }
 }
